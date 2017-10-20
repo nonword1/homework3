@@ -1,4 +1,5 @@
 #include"ConnectedComponentLabeling.h"
+#define VO 255
 int ustc_ConnectedComponentLabeling(
 	Mat grayImg,
 	Mat& labelImg,
