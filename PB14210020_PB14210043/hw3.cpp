@@ -1,4 +1,6 @@
 #include “ConnectedComponentLabeling.h”
+#define PIX_OBJECT -1 //前景像素
+#define PIX_BACK 0 //背景像素
 
 int FirstScan(Mat img, int *table)
 {
