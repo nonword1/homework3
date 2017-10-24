@@ -97,13 +97,13 @@ int ustc_ChooseSmallLable_ChangeLabel(int* labelImgDataInt, int label_1, int lab
 	{
 		labelImgDataInt[location] = label_1;
 		ustc_ChangeLabel(labelImgDataInt, label_1, label_2, location, label_count[label_2]);
-		label_count[label_1] += label_count[label_2];
+		label_count[label_1] += label_count[label_2] + 1;
 	}
 	else
 	{
 		labelImgDataInt[location] = label_2;
 		ustc_ChangeLabel(labelImgDataInt, label_2, label_1, location, label_count[label_1]);
-		label_count[label_2] += label_count[label_1];
+		label_count[label_2] += label_count[label_1] + 1;
 	}
 	return MY_OK;
 }
