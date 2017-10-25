@@ -1,7 +1,7 @@
 #include "core.hpp"
 #include "highgui.hpp"
 #include "iostream"
-#include "HW3.h"
+#include "hw3.h"
 #include "time.h"
 using namespace cv;
 using namespace std;
