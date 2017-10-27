@@ -195,7 +195,7 @@ int ustc_ConnectedComponentLabeling(Mat grayImg, Mat& labelImg, int bin_th)
 					int minNumber = TWO_MIN(num1, num2);
 					connect[xy] = minNumber;
 					transLabel(label, num1 ,num2 , labelMax);
-					break;
+ 					break;
 				}
 				case 10:
 				{
@@ -204,6 +204,7 @@ int ustc_ConnectedComponentLabeling(Mat grayImg, Mat& labelImg, int bin_th)
 					int minNumber = TWO_MIN(num1, num2);
 					connect[xy] = minNumber;
 					transLabel(label, num1, num2, labelMax);
+
 					break;
 				}
 				case 11:
@@ -213,6 +214,7 @@ int ustc_ConnectedComponentLabeling(Mat grayImg, Mat& labelImg, int bin_th)
 					int num3 = connect[xy - 1];
 					int minNumber1 = TWO_MIN(num1, num2);
 					int minNumber2 = TWO_MIN(num3, minNumber1);
+
 					connect[xy] = minNumber2;
 					transLabel2(label, num1, num2, num3, labelMax);
 					break;
@@ -266,6 +268,13 @@ int ustc_ConnectedComponentLabeling(Mat grayImg, Mat& labelImg, int bin_th)
 			}	  
 		}
 	}
+	for (int i = 1; i< height - 1; ++i)
+		for (int j = 1; j < width - 1; ++j)
+		{
+			int num = connect[i * width + j];
+			connect[i * width + j] = label[num];
+		}
+	
 	labelImg = connectImg(Rect(1, 1, width - 2, height - 2)).clone();
 
 }
