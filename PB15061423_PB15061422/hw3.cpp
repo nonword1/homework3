@@ -198,8 +198,9 @@ int ustc_ConnectedComponentLabeling(
 			}
 		}
 	}
-	int lab_vector2array[2000] = { 0 };
 	temp_size = Label_array.size();
+	int *lab_vector2array=new int[temp_size]();
+	memset(lab_vector2array,0,sizeof(int)*temp_size);
 	for (array_index = 1; array_index < temp_size; array_index++)
 	{
 		lab_vector2array[array_index] = Label_array[array_index].result;
@@ -216,5 +217,6 @@ int ustc_ConnectedComponentLabeling(
 		}
 	}
 	labelImg = Label(Range(1, row_bor), Range(1, col_bor)).clone();
+	delete[]lab_vector2array;
 	return MY_OK;
 }
